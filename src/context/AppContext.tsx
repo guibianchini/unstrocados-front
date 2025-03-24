@@ -3,6 +3,9 @@ import React, { createContext, useState, useContext } from "react";
 interface AppContextType {
   theme: string;
   setTheme: React.Dispatch<React.SetStateAction<string>>;
+  isSensitiveInfoVisible: boolean;
+  toggleSensitiveInfoVisibility: () => void;
+  setIsSensitiveInfoVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -13,8 +16,22 @@ interface Props {
 
 export const AppProvider: React.FC<Props> = ({ children }) => {
   const [theme, setTheme] = useState<string>("light");
+
+  const [isSensitiveInfoVisible, setIsSensitiveInfoVisible] =
+    useState<boolean>(false);
+  const toggleSensitiveInfoVisibility = () =>
+    setIsSensitiveInfoVisible((old) => !old);
+
   return (
-    <AppContext.Provider value={{ theme, setTheme }}>
+    <AppContext.Provider
+      value={{
+        theme,
+        setTheme,
+        isSensitiveInfoVisible,
+        toggleSensitiveInfoVisibility,
+        setIsSensitiveInfoVisible,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

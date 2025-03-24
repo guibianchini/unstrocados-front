@@ -1,15 +1,15 @@
 import React from "react";
+import AppRoutes from "./routes";
+import { BrowserRouter } from "react-router-dom";
 import { AppProvider } from "./context/AppContext";
-import ThemeToggle from "./components/ThemeToggle";
 
 const App: React.FC = () => {
   return (
-    <AppProvider>
-      <div>
-        <h1>Hello, React with TypeScript!</h1>
-        <ThemeToggle />
-      </div>
-    </AppProvider>
+    <BrowserRouter>
+      <AppProvider>
+        <AppRoutes />
+      </AppProvider>
+    </BrowserRouter>
   );
 };
 

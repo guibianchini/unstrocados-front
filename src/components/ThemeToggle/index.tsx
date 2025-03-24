@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppContext } from "../context/AppContext";
 import { Button } from "reactstrap";
+import { useAppContext } from "../../context/AppContext";
 
 const ThemeToggle: React.FC = () => {
   const { theme, setTheme } = useAppContext();
