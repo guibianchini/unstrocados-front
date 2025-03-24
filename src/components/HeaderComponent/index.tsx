@@ -39,11 +39,11 @@ const Header: React.FC = () => {
         <div className="mb-0">
           <Select
             name="select"
-            defaultValue={{ value: "Jan/25", label: "Jan/25" }}
+            defaultValue={{ value: "jan/25", label: "jan/25" }}
             mode="brown"
             options={[
-              { value: "Jan/25", label: "Jan/25" },
-              { value: "", label: "Fev/25" },
+              { value: "jan/25", label: "jan/25" },
+              { value: "", label: "fev/25" },
             ]}
           />
         </div>
