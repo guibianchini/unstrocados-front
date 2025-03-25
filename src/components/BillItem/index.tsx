@@ -1,8 +1,8 @@
 import React from "react";
-import { Bill } from "../../context/BillsContext";
 import CardComponent from "../CardComponent";
 import { Badge, Button, Col, Row } from "reactstrap";
 import { BiRightArrowCircle } from "react-icons/bi";
+import { Bill } from "src/types/Bill";
 
 type Props = {
   bill: Bill;
