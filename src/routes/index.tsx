@@ -7,18 +7,23 @@ import {
 } from "react-router-dom";
 import Index from "../pages/Index";
 import Bills from "../pages/Bills";
+import { AppProvider } from "src/context/AppContext";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
+    <>
       <Route path="/" element={<Index />} />
-      <Route path="gastos" element={<Bills />} />
-    </Route>
+      <Route path="/gastos" element={<Bills />} />
+    </>
   )
 );
 
 const AppRoutes: React.FC = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
+  );
 };
 
 export default AppRoutes;
