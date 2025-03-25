@@ -23,7 +23,7 @@ const NextInvoices: React.FC = () => {
         cardClassName="px-3 d-flex flex-column"
       >
         {proximosMeses.map((categoria) => (
-          <div className="my-3">
+          <div className="my-3" key={categoria.name.replace(/ /g, "_")}>
             <CardComponent
               title={categoria.name}
               titlePosition="center"
