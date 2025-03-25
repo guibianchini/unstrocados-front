@@ -1,16 +1,6 @@
 import React from "react";
+import { NavbarComponentProps } from "src/types/NavBar";
 
-interface MenuOption {
-  label: string;
-  link?: string;
-  onClick?: () => void;
-}
-
-interface NavbarComponentProps {
-  options: MenuOption[];
-  textColor?: "primary" | "white";
-  selected: string;
-}
 
 const NavbarComponent: React.FC<NavbarComponentProps> = ({
   options,

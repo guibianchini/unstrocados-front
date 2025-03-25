@@ -1,31 +1,8 @@
 import React from "react";
-import { CardBody, Card } from "reactstrap";
+import { CardBody, Card, CardProps } from "reactstrap";
 
 import "./style.css";
-
-interface CardProps {
-  title?: string;
-  titleHtml?: React.ReactNode;
-  titlePosition?: keyof typeof TITLE_POSITION;
-  hasTitleDivisor?: boolean;
-  children?: React.ReactNode;
-  fontSize?: keyof typeof FONT_SIZE;
-  cardClassName?: string;
-  sideMarginColor?: string;
-  onTitleClick?: () => void;
-}
-
-const FONT_SIZE = {
-  small: "small",
-  regular: "h4",
-  large: "h3",
-};
-
-const TITLE_POSITION = {
-  left: "start",
-  right: "end",
-  center: "center",
-};
+import { FONT_SIZE, TITLE_POSITION } from "src/types/Card";
 
 // const COR_PRIMARIA = "#AD7147";
 // const COR_BRANCA = "#FFFFFF";

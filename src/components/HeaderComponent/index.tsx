@@ -5,13 +5,9 @@ import Select from "../SelectInput";
 import InfoVisibilityToggle from "../InfoVisibilityToggle";
 import NavbarComponent from "../NavbarComponent";
 import { useLocation } from "react-router-dom";
+import { NavbarOption } from "src/types/NavBar";
 
-interface MenuOption {
-  label: string;
-  link: string;
-}
-
-const menuOptions: MenuOption[] = [
+const navbarOptions: NavbarOption[] = [
   {
     label: "resumo",
     link: "/",
@@ -39,7 +35,7 @@ const Header: React.FC = () => {
     }
 
     return location.pathname.split("/")[1];
-  }
+  };
 
   return (
     <Row className="bg-primary py-4 align-items-center rounded-lg">
@@ -65,7 +61,10 @@ const Header: React.FC = () => {
         md={4}
         className="d-flex justify-content-center gap-3 align-items-center"
       >
-        <NavbarComponent options={menuOptions} selected={getSelectedOption()} />
+        <NavbarComponent
+          options={navbarOptions}
+          selected={getSelectedOption()}
+        />
       </Col>
       <Col
         md={4}

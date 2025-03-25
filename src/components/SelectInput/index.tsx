@@ -1,23 +1,8 @@
 import React from "react";
-import Select, { SelectInstance } from "react-select";
+import Select from "react-select";
 
 import "./input.css";
-
-interface Option {
-  label: string;
-  value: string;
-}
-
-interface SelectProps {
-  name: string;
-  options: Option[];
-  defaultValue?: Option;
-  placeholder?: string;
-  id?: string;
-  onChange?: (value: unknown) => void;
-  refProp?: React.Ref<SelectInstance>;
-  mode?: "brown" | "white";
-}
+import { SelectProps } from "src/types/Select";
 
 const COR_PRIMARIA = "#AD7147";
 const COR_BRANCA = "#FFFFFF";
@@ -58,7 +43,7 @@ const SelectComponent: React.FC<SelectProps> = ({
           },
           ":hover": {
             borderColor: mode === "white" ? COR_PRIMARIA : COR_BRANCA,
-          }
+          },
         }),
         option: (provided) => ({
           ...provided,
@@ -67,7 +52,7 @@ const SelectComponent: React.FC<SelectProps> = ({
           ":hover": {
             backgroundColor: COR_PRIMARIA,
             color: COR_BRANCA,
-          }
+          },
         }),
         singleValue: (provided) => ({
           ...provided,
