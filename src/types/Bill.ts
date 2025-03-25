@@ -29,7 +29,7 @@ export interface Bill {
   bill_category: BillCategory;
   bill_payment_method: BillPaymentMethod;
   user_id: number;
-  bill_shared?: BillShared;
+  bill_shared?: BillShared[] | null;
   description?: string | null; // o que foi a compra
   bill_name?: string | null; // como está na fatura
   payment_type: 1 | 2 | 3; // 1 = à vista, 2 = parcelado, 3 = assinatura

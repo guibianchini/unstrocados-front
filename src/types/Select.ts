@@ -7,9 +7,11 @@ export interface SelectOption {
 
 export interface SelectProps {
   name: string;
+  label?: string;
   options: SelectOption[];
   defaultValue?: SelectOption;
   placeholder?: string;
+  isClearable?: boolean;
   id?: string;
   onChange?: (value: unknown) => void;
   refProp?: React.Ref<SelectInstance>;

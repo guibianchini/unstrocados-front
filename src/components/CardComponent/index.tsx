@@ -1,8 +1,8 @@
 import React from "react";
-import { CardBody, Card, CardProps } from "reactstrap";
+import { CardBody, Card } from "reactstrap";
 
 import "./style.css";
-import { FONT_SIZE, TITLE_POSITION } from "src/types/Card";
+import { CardProps, FONT_SIZE, TITLE_POSITION } from "src/types/Card";
 
 // const COR_PRIMARIA = "#AD7147";
 // const COR_BRANCA = "#FFFFFF";
@@ -15,13 +15,14 @@ const CardComponent: React.FC<CardProps> = ({
   titlePosition = "right",
   cardClassName = "p-3",
   onTitleClick,
+  isMinHeight = false,
   sideMarginColor, // Valor padrão se não for passado
 }) => {
   const hasTitle = (!!title && title.length > 0) || !!titleHtml;
   const hasMarginBorder = !!sideMarginColor;
 
   return (
-    <Card className="shadow border-0 h-100">
+    <Card className={`shadow border-0 ${!isMinHeight ? "h-100" : ""}`}>
       {hasMarginBorder ? (
         <div
           className="card-lateral-margin rounded-start"

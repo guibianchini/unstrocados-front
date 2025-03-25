@@ -22,7 +22,7 @@ const navbarOptions: NavbarOption[] = [
   },
   {
     label: "faturas",
-    link: "/contact",
+    link: "/faturas",
   },
 ];
 

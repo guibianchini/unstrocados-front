@@ -14,6 +14,7 @@ export interface CardProps {
   title?: string;
   titleHtml?: React.ReactNode;
   titlePosition?: keyof typeof TITLE_POSITION;
+  isMinHeight?: boolean;
   hasTitleDivisor?: boolean;
   children?: React.ReactNode;
   fontSize?: keyof typeof FONT_SIZE;
