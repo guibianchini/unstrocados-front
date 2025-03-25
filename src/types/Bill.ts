@@ -1,5 +1,13 @@
 import { UserRelated } from "./User";
 
+
+
+export const TIPOS_PAGAMENTOS = {
+  "á vista": 1,
+  parcelado: 2,
+  assinatura: 3,
+};
+
 export interface BillCategory {
   id: number;
   user_id: number;

@@ -2,17 +2,11 @@ import React from "react";
 import CardComponent from "../CardComponent";
 import { Badge, Button, Col, Row } from "reactstrap";
 import { BiRightArrowCircle } from "react-icons/bi";
-import { Bill } from "src/types/Bill";
+import { Bill, TIPOS_PAGAMENTOS } from "src/types/Bill";
 
 type Props = {
   bill: Bill;
   className?: string;
-};
-
-const TIPOS_PAGAMENTOS = {
-  "á vista": 1,
-  parcelado: 2,
-  assinatura: 3,
 };
 
 const BillItem: React.FC<Props> = ({ bill, className }) => {
