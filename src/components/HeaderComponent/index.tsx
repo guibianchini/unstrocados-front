@@ -3,6 +3,8 @@ import { Col, Row } from "reactstrap";
 import logoBrancaSVG from "../../assets/logo_white_svg.svg";
 import Select from "../SelectInput";
 import InfoVisibilityToggle from "../InfoVisibilityToggle";
+import NavbarComponent from "../NavbarComponent";
+import { useLocation } from "react-router-dom";
 
 interface MenuOption {
   label: string;
@@ -16,7 +18,7 @@ const menuOptions: MenuOption[] = [
   },
   {
     label: "gastos",
-    link: "/about",
+    link: "/gastos",
   },
   {
     label: "ganhos",
@@ -29,6 +31,16 @@ const menuOptions: MenuOption[] = [
 ];
 
 const Header: React.FC = () => {
+  const location = useLocation();
+
+  const getSelectedOption = () => {
+    if (location.pathname === "/") {
+      return "resumo";
+    }
+
+    return location.pathname.split("/")[1];
+  }
+
   return (
     <Row className="bg-primary py-4 align-items-center rounded-lg">
       <Col
@@ -53,17 +65,7 @@ const Header: React.FC = () => {
         md={4}
         className="d-flex justify-content-center gap-3 align-items-center"
       >
-        {menuOptions.map((option, idx) => (
-          <>
-            <a href={option.link}>
-              <span className="text-white">{option.label}</span>
-            </a>
-
-            {idx !== menuOptions.length - 1 && (
-              <span className="text-white">|</span>
-            )}
-          </>
-        ))}
+        <NavbarComponent options={menuOptions} selected={getSelectedOption()} />
       </Col>
       <Col
         md={4}

@@ -5,12 +5,14 @@ import "./style.css";
 
 interface CardProps {
   title?: string;
+  titleHtml?: React.ReactNode;
   titlePosition?: keyof typeof TITLE_POSITION;
   hasTitleDivisor?: boolean;
   children?: React.ReactNode;
   fontSize?: keyof typeof FONT_SIZE;
   cardClassName?: string;
   sideMarginColor?: string;
+  onTitleClick?: () => void;
 }
 
 const FONT_SIZE = {
@@ -30,13 +32,15 @@ const TITLE_POSITION = {
 
 const CardComponent: React.FC<CardProps> = ({
   title,
+  titleHtml,
   children,
   fontSize = "regular",
   titlePosition = "right",
   cardClassName = "p-3",
+  onTitleClick,
   sideMarginColor, // Valor padrão se não for passado
 }) => {
-  const hasTitle = !!title && title.length > 0;
+  const hasTitle = (!!title && title.length > 0) || !!titleHtml;
   const hasMarginBorder = !!sideMarginColor;
 
   return (
@@ -59,13 +63,17 @@ const CardComponent: React.FC<CardProps> = ({
       <CardBody className={`${cardClassName}`}>
         {hasTitle ? (
           <div
-            className={`d-flex justify-content-${TITLE_POSITION[titlePosition]} pb-2`}
+            className={`d-flex justify-content-${
+              TITLE_POSITION[titlePosition]
+            } pb-2 ${onTitleClick ? "cursor-pointer" : ""}`}
+            onClick={onTitleClick}
           >
-            <p
+            <div
               className={`fw-bold text-primary text-truncate m-0 ${FONT_SIZE[fontSize]}`}
             >
-              {title?.toLowerCase()}
-            </p>
+              {title ? <span>{title.toLowerCase()}</span> : null}
+              {titleHtml}
+            </div>
           </div>
         ) : null}
         {children}

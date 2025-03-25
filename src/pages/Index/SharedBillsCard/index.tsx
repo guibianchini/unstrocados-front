@@ -8,7 +8,7 @@ const SharedBillsCard: React.FC = () => {
   return (
     <Col md={12} className="mt-5">
       <CardComponent
-        title="contas fixas"
+        title="gastos compartilhados"
         cardClassName="px-3 d-flex flex-column"
       >
         <Row>

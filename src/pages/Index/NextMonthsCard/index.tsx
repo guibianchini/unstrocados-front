@@ -26,7 +26,7 @@ const NextMonthsCard: React.FC = () => {
             const color = balance > 0 ? COLORS.GAIN : COLORS.LOSS;
 
             return (
-              <Col key={index} className="my-3">
+              <Col key={index} className="my-3" xs={12} md={3} xxl={2}>
                 <CardComponent
                   title={proximoMes.month}
                   cardClassName="px-3"
