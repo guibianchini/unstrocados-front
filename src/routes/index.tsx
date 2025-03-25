@@ -1,15 +1,24 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import Index from "../pages/Index";
 import Bills from "../pages/Bills";
 
-const AppRoutes: React.FC = () => {
-  return (
-    <Routes>
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
       <Route path="/" element={<Index />} />
       <Route path="gastos" element={<Bills />} />
-    </Routes>
-  );
+    </Route>
+  )
+);
+
+const AppRoutes: React.FC = () => {
+  return <RouterProvider router={router} />;
 };
 
 export default AppRoutes;
