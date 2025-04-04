@@ -5,9 +5,13 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import Index from "../pages/Index";
-import Bills from "../pages/Bills";
+import Bills from "src/pages/Bills";
+import Index from "src/pages/Index";
 import Invoice from "src/pages/Invoice";
+import { lazyWithDelay } from "src/services/util";
+
+const Login = lazyWithDelay(() => import("src/pages/Login"), 1000);
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -15,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Index />} />
       <Route path="gastos" element={<Bills />} />
       <Route path="faturas" element={<Invoice />} />
+      <Route path="login" element={<Login />} />
     </Route>
   )
 );
