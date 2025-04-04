@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import logo from "../../assets/logo_full_brownbg.svg";
 import loginBackground from "src/assets/login_background.webp";
-import { Button, Label } from "reactstrap";
+import { Button } from "reactstrap";
 import TextComponent from "src/components/TextInput";
 
 const Login: React.FC = () => {
